@@ -5,6 +5,7 @@ try {
     if(!$openid->mode) {
         if(isset($_POST['openid_identifier'])) {
             $openid->identity = $_POST['openid_identifier'];
+            $openid->required = array('namePerson/friendly', 'contact/email', 'namePerson/first'); 
             header('Location: ' . $openid->authUrl());
         }
 ?>
@@ -65,6 +66,9 @@ try {
         echo 'User has canceled authentication!';
     } else {
         echo 'User ' . ($openid->validate() ? $openid->identity . ' has ' : 'has not ') . 'logged in.';
+        echo '<pre>';
+        print_r($openid->getAttributes());
+        echo '</pre>';
     }
 } catch(ErrorException $e) {
     echo $e->getMessage();
