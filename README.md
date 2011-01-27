@@ -1,7 +1,7 @@
 Getting Started
 --
 
-Self explainary. Just visit in your browser
+Self self-explaining. Just visit project in your browser
 
 Requirements
 --
